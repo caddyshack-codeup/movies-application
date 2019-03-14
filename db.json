@@ -3,12 +3,69 @@
     {
       "title": "Casablanca",
       "rating": "4",
-      "id": 1
+      "id": 1,
+      "genre": ["drama", "romance"]
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Star Wars: a New Hope",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "genre": "science fiction"
+    },
+    {
+      "title": "Star Wars: The Empire Strikes Back",
+      "rating": "5",
+      "id": 3,
+      "genre": "science fiction"
+    },
+    {
+      "title": "Star Wars: Return of the Jedi",
+      "rating": "5",
+      "id": 4,
+      "genre": "science fiction"
+    },
+    {
+      "title": "Citizen Kane",
+      "rating": "5",
+      "id": 5,
+      "genre": ["drama", "mystery"]
+    },
+    {
+      "title": "Terminator",
+      "rating": "4",
+      "id": 6,
+      "genre": ["action", "science fiction"]
+    },
+    {
+      "title": "Die Hard",
+      "rating": "4",
+      "id": 7,
+      "genre": "action"
+    },
+    {
+      "title": "Superbad",
+      "rating": "5",
+      "id": 8,
+      "genre": "Comedy"
+    },
+    {
+      "title": "Waterboy",
+      "rating": "3",
+      "id": 9,
+      "genre": "comedy"
+    },
+    {
+      "title": "Lord of the Rings: Fellowship of the Ring",
+      "rating": "5",
+      "id": 10,
+      "genre": ["fantasy", "adventure", "action"]
+    },
+    {
+      "title": "Shrek",
+      "rating": "4",
+      "id": 11,
+      "genre": ["fantasy", "comedy"]
     }
+
   ]
 }

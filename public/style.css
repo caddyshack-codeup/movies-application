@@ -3,21 +3,28 @@ html, body {
 }
 
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
+    width: 100%;
 }
 .movie-container {
     width: 100%;
-    height: 300px;
+    height: 2000px;
     border: 2px solid black;
+    margin-top: 50px;
+
 }
 .each-movie {
-    width: 100%;
-    height: 100%;
-    border: 3px solid red;
+    margin: 0 auto;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
+img {
+    width: 140px;
+    height: 200px;
+    display: inline-block;
+}
+
 #search{
     width: 300px;
 }

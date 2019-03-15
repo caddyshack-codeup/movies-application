@@ -20,8 +20,6 @@ function discoverMovies() {
     })
 }
 
-// https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
-
 function searchMovies(movieSearch) {
   htmlString = '';
   fetch('https://api.themoviedb.org/3/search/movie?api_key=' + '9e3a901be1e7a11297a35248aeac1012' + '&query=' + movieSearch )
@@ -39,15 +37,21 @@ function searchMovies(movieSearch) {
             }
 
 
+            $('.each-movie').click(function(){
 
+              console.log(this);
+              getInfo(poster_path, title)
+            });
+
+            function getInfo(poster_path, title) {
+              console.log(`Title: ${title}, poster: ${poster_path}`)
+
+            }
 
 
           });
 
-          $('img').click(function(){
 
-            console.log('yes');
-          })
 
         })
       })

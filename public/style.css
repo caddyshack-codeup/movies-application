@@ -22,13 +22,16 @@ html, body {
 }
 .right-container {
     background-color: white;
-    height: 1000px;
+    height: 1500px;
     margin: 0;
     padding: 0;
     width: 30%;
     float: left;
     border: 1px solid black;
     opacity: 0.2;
+}
+.right-text-container {
+    position: fixed;
 }
 .each-movie {
     margin: 0 auto;

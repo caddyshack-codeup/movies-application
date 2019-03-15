@@ -30,8 +30,15 @@ function searchMovies(movieSearch) {
           object.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}){
             // console.log(title, vote_average, backdrop_path, poster_path, release_date, overview);
 
-            htmlString += `<div class='each-movie'><img src='https://image.tmdb.org/t/p/w200/${poster_path}'></div>`;
-            $('.movie-container').html(htmlString);
+
+            if (poster_path !== 'null') {
+
+              htmlString += `<div class='each-movie'><img src='https://image.tmdb.org/t/p/w200/${poster_path}'></div>`;
+              $('.movie-container').html(htmlString);
+
+            }
+
+
 
 
 
@@ -46,10 +53,10 @@ function searchMovies(movieSearch) {
       })
 }
 
-$('#search-button').click(function(e){
+$('.btn').click(function(e){
   e.preventDefault();
 
-  let movieSearch = ($('#search').val());
+  let movieSearch = ($('.search-bar').val());
   console.log(movieSearch);
 
   searchMovies(movieSearch);

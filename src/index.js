@@ -30,8 +30,11 @@ function searchMovies(movieSearch) {
           object.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}){
             // console.log(title, vote_average, backdrop_path, poster_path, release_date, overview);
 
-            htmlString += `<div class='each-movie'><img src="https://image.tmdb.org/t/p/w200/${poster_path}"</div>`;
+            htmlString += `<div class='each-movie'><img src='https://image.tmdb.org/t/p/w200/${poster_path}'></div>`;
             $('.movie-container').html(htmlString);
+
+
+
           });
 
         })
@@ -45,7 +48,24 @@ $('#search-button').click(function(e){
   console.log(movieSearch);
 
   searchMovies(movieSearch);
+
+  $('.each-movie').each(function(image){
+    $(image).click(function(){
+
+      console.log('yes');
+    })
+
+  });
+
 });
+
+
+
+
+
+
+
+
 
 // discoverMovies();
 

@@ -1,31 +1,25 @@
-/**
- * es6 modules and imports
- */
-// import sayHello from './hello';
-// sayHello('World');
 
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js');
-
-let htmlString = '';
-
-  getMovies().then((movies) => {
-    movies.forEach(({title, rating}) => {
-      htmlString += (`<div class="each-movie"><h1>${title}</h1><p>${rating}</p></div>`)
+function discoverMovies() {
+  fetch('https://api.themoviedb.org/3/discover/movie?api_key=' + '9e3a901be1e7a11297a35248aeac1012')
+    .then(function(result) {
+    console.log(result.json());
     });
+}
+
+function searchMovies(movieSearch) {
+  fetch('https://api.themoviedb.org/3/search/movie?api_key=' + '9e3a901be1e7a11297a35248aeac1012' + '&query=' + movieSearch )
+    .then(function(result) {
+    console.log(result.json());
+    });
+}
 
 
+discoverMovies();
+searchMovies('jaws');
 
-console.log(htmlString);
 
+  // fetch('')
+  //     .then(response => {
+  //       console.log(response.json());
+  // })
 
-    for (var i = 0; i < htmlString.length; i++) {
-      $('.movie-container').html(htmlString);
-
-    };
-  }).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.')
-    console.log(error);
-  });

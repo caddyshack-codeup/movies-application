@@ -37,6 +37,11 @@ function searchMovies(movieSearch) {
 
           });
 
+          $('img').click(function(){
+
+            console.log('yes');
+          })
+
         })
       })
 }
@@ -49,15 +54,15 @@ $('#search-button').click(function(e){
 
   searchMovies(movieSearch);
 
-  $('.each-movie').each(function(image){
-    $(image).click(function(){
 
-      console.log('yes');
-    })
-
-  });
 
 });
+
+
+
+
+
+
 
 
 

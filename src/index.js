@@ -31,8 +31,10 @@ function searchMovies(movieSearch) {
 
             if (poster_path !== 'null') {
 
-              htmlString += `<div class='each-movie'><img src='https://image.tmdb.org/t/p/w200/${poster_path}'></div>`;
+              htmlString += `<div class='each-movie'><h1>${title}</h1><img src='https://image.tmdb.org/t/p/w200/${poster_path}'></div>`;
               $('.movie-container').html(htmlString);
+
+              console.log(htmlString)
 
             }
 

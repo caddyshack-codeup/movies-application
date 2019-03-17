@@ -1,6 +1,10 @@
 {
   "movies": [
     {
+      "title": "Big Daddy",
+      "rating": "5 Stars",
+      "id": 1
+
       "title": "Casablanca",
       "rating": "4",
       "id": 1,

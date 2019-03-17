@@ -1,4 +1,10 @@
 module.exports = {
+    getMovies: () => {
+        return fetch('/api/movies')
+            .then(response => response.json());
+    }
+};
+
   getMovies: () => {
     return fetch('/api/movies')
       .then(response => response.json());
@@ -11,3 +17,4 @@ module.exports = {
 //         .then(response => response.json()).then(response)
 //   }
 // };
+

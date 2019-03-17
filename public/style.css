@@ -3,6 +3,26 @@ html, body {
     background-image: url('https://www.pptgrounds.com/wp-content/uploads/2012/08/Blue-movie-film-strip-backgrounds.jpg');
 }
 
+
+/*.container {*/
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
+    /*text-align: center;*/
+/*}*/
+
+.form-design {
+    background-color: #f320f0;
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.hiding {
+    display: none;
+}
+
 .container {
 
 }
@@ -43,6 +63,7 @@ html, body {
 /*.movie-info {*/
     /*margin-top: em;*/
 /*}*/
+
 
 
 

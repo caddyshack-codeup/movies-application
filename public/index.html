@@ -5,9 +5,67 @@
     <title>My Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css" />
+
 </head>
 <body>
 <main class="container d-flex h-100 w-100">
+
+
+    <div class="container">
+
+        <!--<h1>Hello There!!</h1>-->
+        <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
+
+        <div class="row">
+            <div id="movies" class="col"></div>
+            <div class="col">
+                <div>
+                    <form class="form-design">
+                        <h3>Add Movie to Database</h3>
+                        <label for="movie-title">Movie Title</label>
+                        <input type="text" id="movie-title">
+
+                        <select id="movie-rating">
+                            <option> 5 Stars</option>
+                            <option> 4 1/2 Stars</option>
+                            <option> 4 Stars</option>
+                            <option> 3 1/2 Stars</option>
+                            <option> 3 Stars</option>
+                            <option> 2 1/2 Stars</option>
+                            <option> 2 Stars</option>
+                            <option> 1 1/2 Stars</option>
+                            <option> 1 Star</option>
+                            <option> 1/2 Star</option>
+                            <option> Total Bomb!</option>
+                        </select>
+
+                        <button id="submitMovie">Add</button>
+                    </form>
+                </div>
+                <div>
+                    <form class="edit form-design hiding">
+                        <h3 id="testId">Edit Movie Database</h3>
+                        <label for="edit-title">Movie Title</label>
+                        <input type="text" id="edit-title">
+
+                        <select id="edit-rating">
+                            <option> 5 Stars</option>
+                            <option> 4 1/2 Stars</option>
+                            <option> 4 Stars</option>
+                            <option> 3 1/2 Stars</option>
+                            <option> 3 Stars</option>
+                            <option> 2 1/2 Stars</option>
+                            <option> 2 Stars</option>
+                            <option> 1 1/2 Stars</option>
+                            <option> 1 Star</option>
+                            <option> 1/2 Star</option>
+                            <option> Total Bomb!</option>
+                        </select>
+
+                        <button id="editMovie">Edit</button>
+                    </form>
+                </div>
+            </div>
 
 
         <div>
@@ -26,8 +84,10 @@
 
                 <button id="submitMovie">Add to Movie Database</button>
             </form>
+
         </div>
 
+    </div>
 
 
     <!--SEARCH BAR CODE-->
@@ -64,6 +124,12 @@
         <div class="col-2">
 
         </div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!--<script src="http://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
 
 

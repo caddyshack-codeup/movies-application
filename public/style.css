@@ -5,10 +5,16 @@ html, body {
 .container {
     width: 100%;
 }
+.load-screen {
+    display: none;
+    position: absolute;
+
+}
 .movie-container {
     width: 100%;
     height: 2000px;
     margin-top: 50px;
+    transform-style: preserve-3d;
 }
 .left-container {
     height: 1000px;
@@ -44,9 +50,6 @@ img {
     height: 200px;
     display: inline-block;
 }
-img:hover {
-    opacity: 0.4;
-}
 .rating-popup-window {
     display: none;
     width: 300px;
@@ -56,6 +59,18 @@ img:hover {
     top: 30%;
     left: calc(50% - 150px);
     text-align: center;
+    transform: translateZ(20px);
+}
+.edit-popup-window {
+    display: none;
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    left: calc(50% - 150px);
+    text-align: center;
+    transform: translateZ(20px);
 }
 #movie-rating {
     text-align: center;
@@ -79,20 +94,5 @@ img:hover {
     background-color: RGB(58, 134, 175);
     font-family: "American Typewriter";
     color: white;
-}
-
-.btn-row {
-    margin: 1em .5em;
-    background-color: transparent;
-    border: none;
-
-}
-
-.border-left .border-right {
-
-}
-
-#down-arrow {
-    font-size: 8px;
 }
 

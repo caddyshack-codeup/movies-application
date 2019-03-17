@@ -9,6 +9,11 @@
 <body>
 
 <main>
+
+    <!--LOAD MESSAGE CENTER-->
+
+    <div class="load-screen">Loading</div>
+
     <div class="left-container">
 
         <form class="form-inline my-2 my-lg-0">
@@ -25,7 +30,7 @@
     </div>
 
 
-
+<!--This only shows when user is prompted to rate the selected movie-->
     <div class="rating-popup-window">
         <form>
             <h3>Rate this movie!</h3>
@@ -43,6 +48,26 @@
         </form>
     </div>
 
+<!--This only shows when user is prompted to *EDIT* the selected movie-->
+    <div class="edit-popup-window">
+        <form>
+            <h3>Edit your rating!</h3>
+
+            <select id="edit-rating">
+                <option> 5 Stars </option>
+                <option> 4 Stars </option>
+                <option> 3 Stars </option>
+                <option> 2 Stars </option>
+                <option> 1 Star </option>
+            </select>
+
+            <button type="submit" id="edit-submit-button">Go!</button>
+
+        </form>
+    </div>
+
+
+
 
 
 
@@ -58,27 +83,6 @@
 
 
 
-<!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
-<div>
-<button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>
-<button class="btn btn-row btn-sm border-left border-right border-dark">Add</button>
-<button class="btn btn-row btn-sm border-left border-right border-dark">Edit</button>
-<button class="btn btn-row btn-sm border-left border-right border-dark">Remove</button>
-</div>
-</div>
-
-<!--new row for movie info-->
-<div class="w-100">
-
-<!--new html goes here-->
-</div>
-<!--add button when each poster is hovered-->
-</div>
-
-</div>
-<div class="col-4 right-container"></div>
-
-
 
 
 
@@ -88,9 +92,9 @@
             src="https://code.jquery.com/jquery-3.3.1.slim.js"
             integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
             crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="tilt.jquery.min.js"></script>
     <script src="./main.js"></script>
-    <script src="./src/keys.js"></script>
+
 
 </body>
 </html>

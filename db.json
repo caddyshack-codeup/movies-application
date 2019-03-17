@@ -1,34 +1,9 @@
 {
   "movies": [
     {
-      "title": "The Lion King",
-      "rating": "5",
-      "id": 1
-    },
-    {
-      "title": "Training Day",
-      "rating": "1 star",
-      "id": 2
-    },
-    {
-      "title": "Green Book",
-      "rating": "4 Stars",
-      "id": 3
-    },
-    {
-      "title": "Mr. Right",
-      "rating": "1 Star",
-      "id": 4
-    },
-    {
-      "title": "Mr. Right",
-      "rating": "5 Stars",
-      "id": 5
-    },
-    {
       "title": "Big Daddy",
       "rating": "5 Stars",
-      "id": 6
+      "id": 1
     }
   ]
 }

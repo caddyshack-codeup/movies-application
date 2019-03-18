@@ -11,32 +11,6 @@
 const {getMovies} = require('./api.js');
 
 
-const makeHTML = () => {
-  let html = "";
-
-  getMovies().then((movies) => {
-    console.log('Here are all the movies:');
-
-    movies.forEach(({title, rating, id}) => {
-      html += `<div class="col">`;
-      html += `<h1>${title}</h1>`;
-      html += `<h2>${rating}</h2>`;
-      html += `<button class="editMovie" id="${id}">Edit</button>`;
-      html += `<button class="deleteMovie" id="${id}">Delete</button>`;
-      html += `</div>`;
-      // console.log(`id#${id} - ${title} - rating: ${rating}`);
-    });
-    // console.log(html);
-    $("#movies").html(html);
-  }).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.')
-    // console.log(error);
-  });
-
-}
-
-makeHTML();
-
 const constructHtml = () => {
   let htmlString = '';
   getMovies().then((movies) => {
@@ -211,7 +185,7 @@ getMovies().then((movies) => {
   console.log('Here are all the movies:');
   let html = "";
   movies.forEach(({title, rating, id}) => {
-    html += makeHTML(title, rating, id);
+    html += constructHtml(title, rating, id);
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 
@@ -245,16 +219,28 @@ const addMovie = ({title, rating}) => {
     "method": "POST",
     "headers": {
       "Content-Type": "application/json"},
-    body: JSON.stringify(newMovie)}).then(makeHTML);
+    body: JSON.stringify(newMovie)}).then(constructHtml);
   // .then(response => JSON.stringify(response));
-}
+};
 
 
 // ////////////////////////////////////////
 // //////// EDIT MOVIE BUTTON /////////////
 // ////////////////////////////////////////
 
-$(document).on('click', 'button.editMovie', (e) => {
+  const editMovie = (id, editedMovie) => {
+    fetch(`./api/movies/${id}`, {
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedMovie)
+    }).then(constructHtml);
+    // .then(response => JSON.stringify(response));
+  };
+
+
+  $(document).on('click', 'button.editMovie', (e) => {
   e.preventDefault();
   $('.edit').toggleClass('hiding');
   let id = $(e.target).attr('id');
@@ -290,70 +276,87 @@ const pullMovieData = (id) => {
 
         for (let movie of movies) {
           // console.log(movie.id);
-          if(movie.id === id) {
+          if (movie.id === id) {
             let returnNewObj = {
               "title": movie.title,
               "rating": movie.rating
             };
 
-          for (let movie of movies) {
+            for (let movie of movies) {
               // console.log(movie.id);
-              if(movie.id === id) {
+              if (movie.id === id) {
                 let returnNewObj = {
                   "title": movie.title,
                   "rating": movie.rating
                 };
 
 
-            $('#edit-title').val(returnNewObj.title);
-            $('#edit-rating').val(returnNewObj.rating);
+                $('#edit-title').val(returnNewObj.title);
+                $('#edit-rating').val(returnNewObj.rating);
 
 
+              }
+
+            }
           }
 
-        }
-      });
-};
+        }});
+
 
 // console.log(pullMovieData($('#edit-title').val()));
-
-const editMovie = (id, editedMovie) => {
-  fetch(`./api/movies/${id}`, {
-    "method": "PUT",
-    "headers": {
-      "Content-Type": "application/json"},
-    body: JSON.stringify(editedMovie)}).then(makeHTML);
-  // .then(response => JSON.stringify(response));
-};
 
 
 
 ////////////////////////////////////////
 //////// DELETE MOVIE BUTTON ///////////
 ////////////////////////////////////////
-$(document).on('click', 'button.deleteMovie', (e) => {
-  e.preventDefault();
-  let id = $(e.target).attr('id');
-  id = parseInt(id);
-  deleteMovie(id);
+        $(document).on('click', 'button.deleteMovie', (e) => {
+          e.preventDefault();
+          let id = $(e.target).attr('id');
+          id = parseInt(id);
+          deleteMovie(id);
 
-});
+        });
 
-const deleteMovie = (id) => {
-  fetch(`./api/movies/${id}`, {
-    "method": "DELETE",
-    "headers": {
-      "Content-Type": "application/json"}
-  })
-      .then(response => JSON.stringify(response)).then(makeHTML);
-};
+        const deleteMovie = (id) => {
+          fetch(`./api/movies/${id}`, {
+            "method": "DELETE",
+            "headers": {
+              "Content-Type": "application/json"
+            }
+          })
+              .then(response => JSON.stringify(response)).then(constructHtml);
+        };
 
+}});
 
+//Load page concat and load function
 
-////////////////////////////////////////////////////////
-/////////// RANDOM NOTES TO MYSELF /////////////////////
-////////////////////////////////////////////////////////
-//////// type npm run dev in terminal, then refresh window
+// const randomQuoteGenerator = function() {
+//
+//   const randomQuotes = [
+//     `"Frankly, my dear, I don't give a damn." - Gone With the Wind, 1939`,
+//     `“I'm going to make him an offer he can't refuse.” - The Godfather, 1972`,
+//     `“You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.” - On the Waterfront, 1954`,
+//     `“Toto, I've got a feeling we're not in Kansas anymore.” - The Wizard of Oz, 1939
+//   Fun fact: As one of the most famous movie quotes in film history, this line has been parodied by many different movies and television shows.`,
+//     `“Here's looking at you, kid.” - Casablanca, 1942`
+//   ];
+//
+//   console.log(randomQuotes);
+//
+//   let loadScreenHtml = '';
+//   let randNum = (Math.floor(Math.random() * (randomQuotes.length)));
+//   for(let i = 0; i < randomQuotes.length; i++) {
+//     console.log(randNum);
+//     loadScreenHtml = randomQuotes[randNum];
+//     console.log(loadScreenHtml);
+//     $('.load-screen').html(`<h1>${loadScreenHtml}</h1>`)
+//   }
+// };
+//
+// randomQuoteGenerator();
+
 
 
 

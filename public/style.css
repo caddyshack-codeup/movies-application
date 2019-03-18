@@ -4,6 +4,14 @@ html, body {
 
 }
 
+.search-position {
+    /*margin-top: 20em;*/
+}
+
+.db-btn:hover {
+    background-color: RGB(58, 134, 175);
+    color: black;
+}
 
 /*.container {*/
     /*position: relative;*/
@@ -37,7 +45,30 @@ html, body {
     height: 2000px;
     margin-top: 50px;
     transform-style: preserve-3d;
+
 }
+
+.modal-dialogue {
+    max-width: none;
+    height: 100%;
+
+}
+
+
+.modal-body {
+    max-height: none;
+    height: 100%;
+    overflow: auto;
+
+}
+
+
+
+.poster-style {
+    /*background-color: white;*/
+    /*opacity: .2;*/
+}
+
 .left-container {
     height: 1000px;
     margin: 0;
@@ -102,7 +133,7 @@ img {
 }
 
 
-}
+
 
 .container-alt {
     position: relative;
@@ -113,6 +144,7 @@ img {
 
 .search-bar {
     background-color: lightgrey;
+    /*margin-top: 20em;*/
 }
 
 .btn {
@@ -134,13 +166,12 @@ img {
 
 }
 
-#down-arrow {
-    font-size: 8px;
+.add-movie-button {
+    /*margin-top: 20em;*/
 }
 
-/*.movie-info {*/
-    /*margin-top: em;*/
-/*}*/
+
+
 
 
 

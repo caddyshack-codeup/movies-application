@@ -4,17 +4,13 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css" />
-
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 <main class="container d-flex h-100 w-100">
 
 
-    <div class="container">
-
-        <!--<h1>Hello There!!</h1>-->
-        <!--<p>To get started, edit <code>src/index.js</code>.</p>-->
+    <!--LOAD MESSAGE CENTER-->
 
         <div class="row">
             <!--<div id="movies" class="col"></div>-->
@@ -67,77 +63,174 @@
                 </div>
             </div>
 
+    <!--<div class="load-screen">Loading</div>-->
 
-        <div>
-            <form class="formBackground">
-                <h3>Add a New Movie!</h3>
-                <label for="movie-title">Title of Movie</label>
-                <input type="text" id="movie-title">
-
-                <select id="movie-rating">
-                    <option> 5 Stars </option>
-                    <option> 4 Stars </option>
-                    <option> 3 Stars </option>
-                    <option> 2 Stars </option>
-                    <option> 1 Star </option>
-                </select>
-
-                <button id="submitMovie">Add to Movie Database</button>
-            </form>
-
-        </div>
-
-    </div>
+    <!--<div class="left-container">-->
 
 
-    <!--SEARCH BAR CODE-->
-    <div class="row w-100">
+        <div class="row w-100">
 
-        <div class="col-2">
+            <div class="col-12 text-center mt-auto mb-auto ml-auto mr-auto w-100">
 
-        </div>
+                <!--SEARCH BAR CODE-->
+                <div class="search-position">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 search-bar ml-auto" type="search" placeholder="Find a movie..." aria-label="Search">
+                    <button class="btn add-movie-button my-sm-0 mr-auto" data-toggle="modal" data-target="#myModal3" type="submit">Search</button>
+                </form>
 
-        <div class="col-8 text-center mt-auto mb-auto ml-auto mr-auto w-100">
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 search-bar ml-auto" type="search" placeholder="Find a movie..." aria-label="Search">
-                <button class="btn  my-2 my-sm-0 mr-auto" type="submit">Search</button>
-            </form>
-
-            <!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
-            <div>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">Add</button>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">Edit</button>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">Remove</button>
+                <!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
+                <div>
+                    <!--<button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>-->
+                    <button class="btn btn-info btn-row btn-sm border-left border-right border-dark db-btn" data-toggle="modal" data-target="#myModal">Add</button>
+                    <button class="btn btn-row btn-sm border-left border-right border-dark db-btn" data-toggle="modal" data-target="#myModal2">Edit</button>
+                    <button class="btn btn-row btn-sm border-left border-right border-dark db-btn">Remove</button>
+                </div>
+                </div>
             </div>
 
-            <!--new row for movie info-->
-            <div class="row w-100">
-            <div class="movie-info">
-                <!--Can use this empty div to populate movie data, posters, etc-->
-                <h1>EMPTY DIV</h1>
-            </div>
+
+            <!--Modal for displaying search selections-->
+            <div class="modal fade" id="myModal3" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Popup-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <h3 class="modal-title mx-auto">Search Results:</h3>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="movie-container movie-info ">
+                                    <!--new html goes here-->
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div class="col-2">
 
-        </div>
+                <!--=========POP-UP BUTTON WINDOWS (Modals)==========-->
+
+                    <!-- Modal for adding movies-->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!--Add Movie popup-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                                    <h4 class="modal-title text-center">Add a new Movie!</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <form class="formBackground">
+                                            <label for="movie-title">Title of Movie</label>
+                                            <input type="text" id="movie-title">
+                                            <label for="movie-rating"></label>
+                                            <select id="movie-rating">
+                                                <option> 5 Stars</option>
+                                                <option> 4 1/2 Stars</option>
+                                                <option> 4 Stars</option>
+                                                <option> 3 1/2 Stars</option>
+                                                <option> 3 Stars</option>
+                                                <option> 2 1/2 Stars</option>
+                                                <option> 2 Stars</option>
+                                                <option> 1 1/2 Stars</option>
+                                                <option> 1 Star</option>
+                                                <option> 1/2 Star</option>
+                                                <option> Total Bomb!</option>
+                                            </select>
+
+                                            <button id="submitMovie">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Modal for editing-->
+                    <div class="modal fade" id="myModal2" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Editing Popup-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <h4 class="modal-title">Edit Movie Entry</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <!--class="edit form-design hiding"-->
+                                        <label for="edit-title">Movie Title</label>
+                                        <input type="text" id="edit-title">
+
+                                        <select id="edit-rating">
+                                            <option> 5 Stars</option>
+                                            <option> 4 1/2 Stars</option>
+                                            <option> 4 Stars</option>
+                                            <option> 3 1/2 Stars</option>
+                                            <option> 3 Stars</option>
+                                            <option> 2 1/2 Stars</option>
+                                            <option> 2 Stars</option>
+                                            <option> 1 1/2 Stars</option>
+                                            <option> 1 Star</option>
+                                            <option> 1/2 Star</option>
+                                            <option> Total Bomb!</option>
+                                        </select>
+
+                                        <button id="editMovie">Edit</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
 
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <!--<script src="http://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
 
+<!--This only shows when user is prompted to rate the selected movie-->
+    <!--<div class="rating-popup-window">-->
+        <!--<form>-->
+            <!--<h3>Rate this movie!</h3>-->
 
+            <!--<select id="movie-rating2">-->
+                <!--<option> 5 Stars </option>-->
+                <!--<option> 4 Stars </option>-->
+                <!--<option> 3 Stars </option>-->
+                <!--<option> 2 Stars </option>-->
+                <!--<option> 1 Star </option>-->
+            <!--</select>-->
+
+            <!--<button type="submit" id="rating-submit-button">Go!</button>-->
+
+        <!--</form>-->
+    <!--</div>-->
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="tilt.jquery.min.js"></script>
 <script src="./main.js"></script>
 </body>
 </html>

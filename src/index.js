@@ -6,33 +6,36 @@
  * require style imports
  */
 const {getMovies} = require('./api.js');
-const {addMovie} = require('./addMovie.js');
 
 
-const makeHTML = (title, rating, id) => {
-  let html = `<div class="col">`;
-  html += `<h1>${title}</h1>`;
-  html += `<h2>${rating}</h2>`;
-  html += `<button class="editMovie" id="${id}">Edit</button>`;
-  html += `<button class="deleteMovie" id="${id}">Delete</button>`;
-  html += `</div>`;
-  return html;
-}
-
-
-getMovies().then((movies) => {
-  console.log('Here are all the movies:');
+const makeHTML = () => {
   let html = "";
-  movies.forEach(({title, rating, id}) => {
-    html += makeHTML(title, rating, id);
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
+
+  getMovies().then((movies) => {
+    console.log('Here are all the movies:');
+
+    movies.forEach(({title, rating, id}) => {
+      html += `<div class="col">`;
+      html += `<h1>${title}</h1>`;
+      html += `<h2>${rating}</h2>`;
+      html += `<button class="editMovie" id="${id}">Edit</button>`;
+      html += `<button class="deleteMovie" id="${id}">Delete</button>`;
+      html += `</div>`;
+      // console.log(`id#${id} - ${title} - rating: ${rating}`);
+    });
+  // console.log(html);
+    $("#movies").html(html);
+  }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.')
+    // console.log(error);
   });
 
-  $("#movies").html(html);
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  // console.log(error);
-});
+}
+
+makeHTML();
+
+
+
 
 
 
@@ -56,6 +59,17 @@ $('#submitMovie').on('click', (e) => {
 });
 
 
+const addMovie = ({title, rating}) => {
+  let newMovie = { title, rating };
+  fetch('./api/movies', {
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"},
+    body: JSON.stringify(newMovie)}).then(makeHTML);
+  // .then(response => JSON.stringify(response));
+}
+
+
 // ////////////////////////////////////////
 // //////// EDIT MOVIE BUTTON /////////////
 // ////////////////////////////////////////
@@ -66,7 +80,7 @@ $(document).on('click', 'button.editMovie', (e) => {
   let id = $(e.target).attr('id');
   id = parseInt(id);
   pullMovieData(id);
-  $('#editMovie').on('click', (e) => {
+  $('#editMovie').off().on('click', (e) => {
     e.preventDefault();
     let editedTitle = $('#edit-title').val();
     let editedRating = $('#edit-rating').val();
@@ -75,6 +89,8 @@ $(document).on('click', 'button.editMovie', (e) => {
       "rating": editedRating
     };
     editMovie(id, editedMovie);
+    // makeHTML(editMovie());
+
 
   })
 
@@ -116,8 +132,8 @@ const editMovie = (id, editedMovie) => {
     "method": "PUT",
     "headers": {
       "Content-Type": "application/json"},
-    body: JSON.stringify(editedMovie)})
-      .then(response => JSON.stringify(response));
+    body: JSON.stringify(editedMovie)}).then(makeHTML);
+      // .then(response => JSON.stringify(response));
 };
 
 
@@ -139,7 +155,7 @@ const deleteMovie = (id) => {
     "headers": {
       "Content-Type": "application/json"}
   })
-      .then(response => JSON.stringify(response));
+      .then(response => JSON.stringify(response)).then(makeHTML);
 };
 
 

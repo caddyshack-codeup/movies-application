@@ -2,13 +2,33 @@
   "movies": [
     {
       "title": "Casablanca",
-      "rating": "4",
+      "rating": "4 Stars",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "rating": "5 Stars",
       "id": 2
+    },
+    {
+      "title": "Tomb Raider",
+      "rating": "3 Stars",
+      "id": 3
+    },
+    {
+      "title": "Grease",
+      "rating": "4 1/2 Stars",
+      "id": 4
+    },
+    {
+      "title": "Grease 2",
+      "rating": "3 Stars",
+      "id": 5
+    },
+    {
+      "title": "Return of the Jedi",
+      "rating": "2 1/2 Stars",
+      "id": 6
     }
   ]
 }

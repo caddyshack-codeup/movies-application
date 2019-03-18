@@ -95,10 +95,17 @@ html, body {
 }
 
 .each-movie {
-    margin: 40px 0 20px 40px;
+    /*margin: 40px 0 20px 40px;*/
+    margin: 3em;
     float: left;
     width: 160px;
+    /*display: inline-block;*/
 }
+
+.each-movie h3 {
+    font-size: 15px;
+}
+
 .title {
     font-size: 25px;
 }
@@ -178,20 +185,20 @@ img {
     background: rgba(255, 255, 255, .8)
 }
 
-/*.load-screen {*/
-    /*!*display: none;*!*/
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background-color: black;*/
-    /*z-index: 100;*/
-/*}*/
-/*.load-screen h1 {*/
-    /*color: white;*/
-    /*font-size: 60px;*/
-    /*text-align: center;*/
-    /*margin-top: 30vh;*/
-/*}*/
+.load-screen {
+    /*display: none;*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 100;
+}
+.load-screen h1 {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 30vh;
+}
 
 
 

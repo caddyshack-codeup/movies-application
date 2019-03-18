@@ -24,6 +24,11 @@
       "title": "Scary Potter",
       "rating": "4 1/2 Stars",
       "id": 5
+    },
+    {
+      "title": "Mega Jaws 2: Electric Boogaloo",
+      "rating": "5 Stars",
+      "id": 6
     }
   ]
 }

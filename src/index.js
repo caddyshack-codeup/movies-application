@@ -2,7 +2,6 @@
  * es6 modules and imports
  */
 
-
 /**
  * require style imports
  */
@@ -10,20 +9,33 @@
 
 
 const {getMovies} = require('./api.js');
-const {addMovie} = require('./addMovie.js');
 
 
-const makeHTML = (title, rating, id) => {
-  let html = `<div class="col">`;
-  html += `<h1>${title}</h1>`;
-  html += `<h2>${rating}</h2>`;
-  html += `<button class="editMovie" id="${id}">Edit</button>`;
-  html += `<button class="deleteMovie" id="${id}">Delete</button>`;
-  html += `</div>`;
-  return html;
+const makeHTML = () => {
+  let html = "";
+
+  getMovies().then((movies) => {
+    console.log('Here are all the movies:');
+
+    movies.forEach(({title, rating, id}) => {
+      html += `<div class="col">`;
+      html += `<h1>${title}</h1>`;
+      html += `<h2>${rating}</h2>`;
+      html += `<button class="editMovie" id="${id}">Edit</button>`;
+      html += `<button class="deleteMovie" id="${id}">Delete</button>`;
+      html += `</div>`;
+      // console.log(`id#${id} - ${title} - rating: ${rating}`);
+    });
+    // console.log(html);
+    $("#movies").html(html);
+  }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.')
+    // console.log(error);
+  });
+
 }
 
-
+makeHTML();
 
 const constructHtml = () => {
   let htmlString = '';
@@ -203,11 +215,7 @@ getMovies().then((movies) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
   });
 
-  $("#movies").html(html);
-}).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
-  // console.log(error);
-});
+
 
 
 
@@ -231,6 +239,16 @@ $('#submitMovie').on('click', (e) => {
 });
 
 
+const addMovie = ({title, rating}) => {
+  let newMovie = { title, rating };
+  fetch('./api/movies', {
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"},
+    body: JSON.stringify(newMovie)}).then(makeHTML);
+  // .then(response => JSON.stringify(response));
+}
+
 
 // ////////////////////////////////////////
 // //////// EDIT MOVIE BUTTON /////////////
@@ -242,7 +260,7 @@ $(document).on('click', 'button.editMovie', (e) => {
   let id = $(e.target).attr('id');
   id = parseInt(id);
   pullMovieData(id);
-  $('#editMovie').on('click', (e) => {
+  $('#editMovie').off().on('click', (e) => {
     e.preventDefault();
     let editedTitle = $('#edit-title').val();
     let editedRating = $('#edit-rating').val();
@@ -251,6 +269,8 @@ $(document).on('click', 'button.editMovie', (e) => {
       "rating": editedRating
     };
     editMovie(id, editedMovie);
+    // makeHTML(editMovie());
+
 
   })
 
@@ -267,6 +287,15 @@ const pullMovieData = (id) => {
   })
       .then(response => response.json())
       .then(movies => {
+
+        for (let movie of movies) {
+          // console.log(movie.id);
+          if(movie.id === id) {
+            let returnNewObj = {
+              "title": movie.title,
+              "rating": movie.rating
+            };
+
           for (let movie of movies) {
               // console.log(movie.id);
               if(movie.id === id) {
@@ -276,15 +305,14 @@ const pullMovieData = (id) => {
                 };
 
 
+            $('#edit-title').val(returnNewObj.title);
+            $('#edit-rating').val(returnNewObj.rating);
 
-                $('#edit-title').val(returnNewObj.title);
-                $('#edit-rating').val(returnNewObj.rating);
-
-
-              }
 
           }
-  });
+
+        }
+      });
 };
 
 // console.log(pullMovieData($('#edit-title').val()));
@@ -294,8 +322,8 @@ const editMovie = (id, editedMovie) => {
     "method": "PUT",
     "headers": {
       "Content-Type": "application/json"},
-    body: JSON.stringify(editedMovie)})
-      .then(response => JSON.stringify(response));
+    body: JSON.stringify(editedMovie)}).then(makeHTML);
+  // .then(response => JSON.stringify(response));
 };
 
 
@@ -309,7 +337,7 @@ $(document).on('click', 'button.deleteMovie', (e) => {
   id = parseInt(id);
   deleteMovie(id);
 
-  });
+});
 
 const deleteMovie = (id) => {
   fetch(`./api/movies/${id}`, {
@@ -317,7 +345,7 @@ const deleteMovie = (id) => {
     "headers": {
       "Content-Type": "application/json"}
   })
-      .then(response => JSON.stringify(response));
+      .then(response => JSON.stringify(response)).then(makeHTML);
 };
 
 
@@ -326,17 +354,6 @@ const deleteMovie = (id) => {
 /////////// RANDOM NOTES TO MYSELF /////////////////////
 ////////////////////////////////////////////////////////
 //////// type npm run dev in terminal, then refresh window
-
-//////// npm run dev in terminal, then refresh window
-
-//Loading text while our AJAX request processes
-// $(document).ready(function () {
-//   $(document).ajaxStart(function () {
-//     $("#loading").show();
-//   }).ajaxStop(function () {
-//     $("#loading").hide();
-//   });
-// });
 
 
 

@@ -11,5 +11,5 @@ module.exports = {
             body: JSON.stringify(newMovie)});
             // .then(response => JSON.stringify(response));
     }
-    // addMovie(newMovie);
+
 };

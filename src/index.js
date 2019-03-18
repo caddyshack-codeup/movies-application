@@ -23,7 +23,7 @@ const makeHTML = () => {
       html += `</div>`;
       // console.log(`id#${id} - ${title} - rating: ${rating}`);
     });
-  // console.log(html);
+    // console.log(html);
     $("#movies").html(html);
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
@@ -107,22 +107,22 @@ const pullMovieData = (id) => {
   })
       .then(response => response.json())
       .then(movies => {
-          for (let movie of movies) {
-              // console.log(movie.id);
-              if(movie.id === id) {
-                let returnNewObj = {
-                  "title": movie.title,
-                  "rating": movie.rating
-                };
+        for (let movie of movies) {
+          // console.log(movie.id);
+          if(movie.id === id) {
+            let returnNewObj = {
+              "title": movie.title,
+              "rating": movie.rating
+            };
 
-                $('#edit-title').val(returnNewObj.title);
-                $('#edit-rating').val(returnNewObj.rating);
+            $('#edit-title').val(returnNewObj.title);
+            $('#edit-rating').val(returnNewObj.rating);
 
-
-              }
 
           }
-  });
+
+        }
+      });
 };
 
 // console.log(pullMovieData($('#edit-title').val()));
@@ -133,7 +133,7 @@ const editMovie = (id, editedMovie) => {
     "headers": {
       "Content-Type": "application/json"},
     body: JSON.stringify(editedMovie)}).then(makeHTML);
-      // .then(response => JSON.stringify(response));
+  // .then(response => JSON.stringify(response));
 };
 
 
@@ -147,7 +147,7 @@ $(document).on('click', 'button.deleteMovie', (e) => {
   id = parseInt(id);
   deleteMovie(id);
 
-  });
+});
 
 const deleteMovie = (id) => {
   fetch(`./api/movies/${id}`, {
@@ -165,3 +165,10 @@ const deleteMovie = (id) => {
 /////////// RANDOM NOTES TO MYSELF /////////////////////
 ////////////////////////////////////////////////////////
 //////// type npm run dev in terminal, then refresh window
+
+
+
+
+
+
+

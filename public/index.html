@@ -8,6 +8,8 @@
 
 </head>
 <body>
+<main class="container d-flex h-100 w-100">
+
 
     <div class="container">
 
@@ -64,12 +66,64 @@
                     </form>
                 </div>
             </div>
+
+
+        <div>
+            <form class="formBackground">
+                <h3>Add a New Movie!</h3>
+                <label for="movie-title">Title of Movie</label>
+                <input type="text" id="movie-title">
+
+                <select id="movie-rating">
+                    <option> 5 Stars </option>
+                    <option> 4 Stars </option>
+                    <option> 3 Stars </option>
+                    <option> 2 Stars </option>
+                    <option> 1 Star </option>
+                </select>
+
+                <button id="submitMovie">Add to Movie Database</button>
+            </form>
+
         </div>
 
     </div>
 
 
+    <!--SEARCH BAR CODE-->
+    <div class="row w-100">
 
+        <div class="col-2">
+
+        </div>
+
+        <div class="col-8 text-center mt-auto mb-auto ml-auto mr-auto w-100">
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2 search-bar ml-auto" type="search" placeholder="Find a movie..." aria-label="Search">
+                <button class="btn  my-2 my-sm-0 mr-auto" type="submit">Search</button>
+            </form>
+
+            <!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
+            <div>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Add</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Edit</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark">Remove</button>
+            </div>
+
+            <!--new row for movie info-->
+            <div class="row w-100">
+            <div class="movie-info">
+                <!--Can use this empty div to populate movie data, posters, etc-->
+                <h1>EMPTY DIV</h1>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+
+        </div>
 
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -77,8 +131,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
-    <script src="./main.js"></script>
-    <!--<script src="../src/keys.js"></script>-->
 
+
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="./main.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 html, body {
     height: 100%;
+    background-image: url('https://www.pptgrounds.com/wp-content/uploads/2012/08/Blue-movie-film-strip-backgrounds.jpg');
 }
+
 
 /*.container {*/
     /*position: relative;*/
@@ -20,3 +22,48 @@ html, body {
 .hiding {
     display: none;
 }
+
+.container {
+
+}
+
+.container-alt {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    text-align: center;
+}
+
+.search-bar {
+    background-color: lightgrey;
+}
+
+.btn {
+    border: white solid 1px;
+    background-color: RGB(58, 134, 175);
+    font-family: "American Typewriter";
+    color: white;
+}
+
+.btn-row {
+    margin: 1em .5em;
+    background-color: transparent;
+    border: none;
+
+}
+
+.border-left .border-right {
+
+}
+
+#down-arrow {
+    font-size: 8px;
+}
+
+/*.movie-info {*/
+    /*margin-top: em;*/
+/*}*/
+
+
+
+

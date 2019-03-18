@@ -13,6 +13,10 @@ html, body {
     color: black;
 }
 
+.each-movie {
+    display: inline-block;
+}
+
 /*.container {*/
     /*position: relative;*/
     /*top: 50%;*/
@@ -54,15 +58,12 @@ html, body {
 
 }
 
-
 .modal-body {
     max-height: none;
     height: 100%;
     overflow: auto;
 
 }
-
-
 
 .poster-style {
     /*background-color: white;*/
@@ -77,6 +78,7 @@ html, body {
     float: left;
     text-align: center;
 }
+
 .right-container {
     background-color: white;
     height: 1500px;
@@ -87,9 +89,11 @@ html, body {
     border: 1px solid black;
     opacity: 0.2;
 }
+
 .right-text-container {
     position: fixed;
 }
+
 .each-movie {
     margin: 40px 0 20px 40px;
     float: left;
@@ -169,6 +173,25 @@ img {
 .add-movie-button {
     /*margin-top: 20em;*/
 }
+
+.modal-content {
+    background: rgba(255, 255, 255, .8)
+}
+
+/*.load-screen {*/
+    /*!*display: none;*!*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background-color: black;*/
+    /*z-index: 100;*/
+/*}*/
+/*.load-screen h1 {*/
+    /*color: white;*/
+    /*font-size: 60px;*/
+    /*text-align: center;*/
+    /*margin-top: 30vh;*/
+/*}*/
 
 
 

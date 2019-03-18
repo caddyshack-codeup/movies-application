@@ -1,8 +1,8 @@
 {
   "movies": [
     {
+
       "title": "Casablanca",
-<<<<<<< HEAD
       "rating": "4 Stars",
       "id": 1
     },
@@ -30,7 +30,7 @@
       "title": "Return of the Jedi",
       "rating": "2 1/2 Stars",
       "id": 6
-=======
+
       "rating": "4",
       "id": 1,
       "genre": ["drama", "romance"]
@@ -133,7 +133,6 @@
       "id": 11,
       "genre": ["fantasy", "comedy"]
 
->>>>>>> 80afe5af7281006278b53ded3f3509413974e784
     }
 
   ]

@@ -16,8 +16,8 @@ const makeHTML = () => {
 
     movies.forEach(({title, rating, id}) => {
       html += `<div class="col">`;
-      html += `<h1>${title}</h1>`;
-      html += `<h2>${rating}</h2>`;
+      html += `<h1 style="color:grey;">${title}</h1>`;
+      html += `<h2 style="color:grey;">Rating: ${rating}</h2>`;
       html += `<button class="editMovie" id="${id}">Edit</button>`;
       html += `<button class="deleteMovie" id="${id}">Delete</button>`;
       html += `</div>`;

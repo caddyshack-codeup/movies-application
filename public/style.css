@@ -6,13 +6,21 @@ html, body {
     width: 100%;
 }
 .load-screen {
-    display: none;
+    /*display: none;*/
     position: absolute;
-
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 100;
+}
+.load-screen h1 {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 30vh;
 }
 .movie-container {
     width: 100%;
-    height: 2000px;
     margin-top: 50px;
     transform-style: preserve-3d;
 }

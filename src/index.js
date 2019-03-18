@@ -23,12 +23,15 @@ const constructHtml = () => {
                     <button class="${id} edit-button btn btn-row btn-sm border-left border-right border-dark">Edit</button>`;
     });
     $('.right-container').html(htmlString);
+    $('.load-screen').hide();
+
+
+
 
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
   });
-  htmlString = '';
 };
 
 constructHtml();
@@ -58,11 +61,13 @@ function searchMovies(movieSearch) {
             // console.log(title, vote_average, backdrop_path, poster_path, release_date, overview);
 
 
-            posterString += `<div id='${title}' class='each-movie'>
+            if (poster_path !== null) {
+              posterString += `<div id='${title}' class='each-movie'>
                                      <img id='${id}' src='https://image.tmdb.org/t/p/w200/${poster_path}'><br>
                                      <h3>${title}</h3>
                                </div>`;
-            $('.movie-container').html(posterString);
+              $('.movie-container').html(posterString);
+            }
           });
 
 
@@ -70,6 +75,9 @@ function searchMovies(movieSearch) {
 
 
           const addMovie = (movieTitle, movieRating, movieId) => {
+            randomQuoteGenerator();
+
+
             const movieAdded = {title: movieTitle, rating: movieRating, id: movieId};
             const url = '/api/movies';
             const options = {
@@ -89,6 +97,7 @@ function searchMovies(movieSearch) {
 
           $('.each-movie').off().click(function(e){
             e.preventDefault();
+
             let userSearch = (this.id);
 
 
@@ -96,9 +105,8 @@ function searchMovies(movieSearch) {
             $('#rating-submit-button').off().click(function(e) {
               e.preventDefault();
               $('.rating-popup-window').hide();
+              $('.load-screen').show();
               let movieRating = $('#movie-rating').val();
-              console.log(userSearch);
-              console.log(movieRating);
               return addMovie(userSearch, movieRating);
             });
           });
@@ -110,6 +118,7 @@ function searchMovies(movieSearch) {
 
 
 const editMovie = (title, newMovieRating, id) => {
+
   console.log(title, newMovieRating, id);
   const movieEdited = {title: title, rating: newMovieRating, id: id};
   console.log(movieEdited);
@@ -123,6 +132,7 @@ const editMovie = (title, newMovieRating, id) => {
   };
   fetch(url, options)
       .then(constructHtml);
+
 };
 
 
@@ -139,9 +149,14 @@ $(document).on('click', '.edit-button', function (e) {
         // console.log(title, rating, movieId);
         $('.edit-popup-window').show();
         $('#edit-submit-button').click(function(e) {
-          $('.edit-popup-window').hide();
           e.preventDefault();
+          randomQuoteGenerator();
+          $('.load-screen').show();
+          // setTimeout (function(){
+          //   $('.load-screen').show();
+          // }, 3000);
           let newMovieRating = $('#edit-rating').val();
+          $('.edit-popup-window').hide();
           // console.log(title, newMovieRating, movieId);
           editMovie(title, newMovieRating, id);
         })
@@ -156,6 +171,8 @@ $(document).on('click', '.edit-button', function (e) {
 //DELETE METHOD for REMOVING movie title, rating, and id
 
 const deleteMovie = (deleteMovieId) => {
+  randomQuoteGenerator();
+  $('.load-screen').show();
   let url = `/api/movies/${deleteMovieId}`;
   const options = {
     method: 'DELETE',
@@ -164,7 +181,11 @@ const deleteMovie = (deleteMovieId) => {
     },
   };
   fetch(url, options)
-      .then(constructHtml)
+      .then(constructHtml);
+        setTimeout (function (){
+          $('.load-screen').hide();
+
+        }, 3000)
 };
 
 //DELETE BUTTON event listener
@@ -178,9 +199,49 @@ $(document).on("click", ".delete-button", function (e) {
       if ($(this).attr('id') === id.toString()) {
         deleteMovie(deleteMovieId);
       }
-    })
-  })
+    });
+  });
+
 });
+
+
+//Load page concat and load function
+
+const randomQuoteGenerator = function() {
+
+  const randomQuotes = [
+    `"Frankly, my dear, I don't give a damn." - Gone With the Wind, 1939`,
+    `“I'm going to make him an offer he can't refuse.” - The Godfather, 1972`,
+    `“You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.” - On the Waterfront, 1954`,
+      `“Toto, I've got a feeling we're not in Kansas anymore.” - The Wizard of Oz, 1939
+  Fun fact: As one of the most famous movie quotes in film history, this line has been parodied by many different movies and television shows.`,
+      `“Here's looking at you, kid.” - Casablanca, 1942`
+];
+
+  console.log(randomQuotes)
+
+  let loadScreenHtml = '';
+  let randNum = (Math.floor(Math.random() * (randomQuotes.length)));
+  for(let i = 0; i < randomQuotes.length; i++) {
+    console.log(randNum);
+      loadScreenHtml = randomQuotes[randNum];
+      console.log(loadScreenHtml);
+      $('.load-screen').html(`<h1>${loadScreenHtml}</h1>`)
+
+  }
+
+  loadScreenHtml = '';
+
+
+
+};
+
+randomQuoteGenerator();
+
+
+
+
+
 
 
 

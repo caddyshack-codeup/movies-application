@@ -16,6 +16,7 @@
 
 
 
+
 <main>
 
     <!--LOAD MESSAGE CENTER-->
@@ -200,10 +201,75 @@
             <!--BUTTON ROW FOR VIEWING, ADDING, EDITING, DELETING-->
             <div>
             <button class="btn btn-row btn-sm border-left border-right border-dark">View All <span id="down-arrow">&#x25BC;</span></button>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">Add</button>
-            <button class="btn btn-row btn-sm border-left border-right border-dark">Edit</button>
+            <button class="btn btn-info btn-row btn-sm border-left border-right border-dark" data-toggle="modal" data-target="#myModal">Add</button>
+            <button class="btn btn-row btn-sm border-left border-right border-dark" data-toggle="modal" data-target="#myModal2">Edit</button>
             <button class="btn btn-row btn-sm border-left border-right border-dark">Remove</button>
             </div>
+
+            <!--===================-->
+
+            <div class="container">
+
+
+                <!-- Modal for adding movies-->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!--Add Movie popup-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-center">Add a new Movie!</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                <form class="formBackground">
+                                <label for="movie-title">Title of Movie</label>
+                                <input type="text" id="movie-title">
+
+                                <select id="movie-rating">
+                                <option> 5 Stars </option>
+                                <option> 4 Stars </option>
+                                <option> 3 Stars </option>
+                                <option> 2 Stars </option>
+                                <option> 1 Star </option>
+                                </select>
+
+                                <button id="submitMovie">Add to Movie Database</button>
+                                </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Modal for editing-->
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Editing Popup-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header2</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
 
             <!--new row for movie info-->
             <div class="row w-100">

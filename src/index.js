@@ -227,13 +227,7 @@ const randomQuoteGenerator = function() {
       loadScreenHtml = randomQuotes[randNum];
       console.log(loadScreenHtml);
       $('.load-screen').html(`<h1>${loadScreenHtml}</h1>`)
-
   }
-
-  loadScreenHtml = '';
-
-
-
 };
 
 randomQuoteGenerator();

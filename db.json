@@ -1,14 +1,19 @@
 {
   "movies": [
     {
-      "title": "Harry Potter and the Chamber of Secrets",
-      "rating": "3 Stars",
-      "id": 12
+      "title": "Jaws",
+      "rating": "1 Star",
+      "id": 13
     },
     {
-      "title": "Jaws",
+      "title": "Big Hero 6",
       "rating": "3 Stars",
-      "id": 13
+      "id": 14
+    },
+    {
+      "title": "Big Kill",
+      "rating": "1 Star",
+      "id": 15
     }
   ]
 }

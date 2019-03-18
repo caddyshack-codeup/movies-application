@@ -73,7 +73,7 @@ function searchMovies(movieSearch) {
 
             posterString += `<div id='${title}' class='each-movie'>
                                      <img id='${id}' src='https://image.tmdb.org/t/p/w200/${poster_path}'><br>
-                                     <h3>${title}</h3>
+                                     <h4>${title}</h4>
                                </div>`;
             $('.movie-container').html(posterString);
           });
@@ -109,7 +109,7 @@ function searchMovies(movieSearch) {
             $('#rating-submit-button').off().click(function(e) {
               e.preventDefault();
               $('.rating-popup-window').hide();
-              let movieRating = $('#movie-rating').val();
+              let movieRating = $('#movie-rating2').val();
               console.log(userSearch);
               console.log(movieRating);
               return addMovie(userSearch, movieRating);
@@ -122,7 +122,7 @@ function searchMovies(movieSearch) {
 // PATCH method for editing movie rating
 
 
-const editMovie = (title, newMovieRating, id) => {
+const editMovie2 = (title, newMovieRating, id) => {
   console.log(title, newMovieRating, id);
   const movieEdited = {title: title, rating: newMovieRating, id: id};
   console.log(movieEdited);
@@ -156,7 +156,7 @@ $(document).on('click', '.edit-button', function (e) {
           e.preventDefault();
           let newMovieRating = $('#edit-rating').val();
           // console.log(title, newMovieRating, movieId);
-          editMovie(title, newMovieRating, id);
+          editMovie2(title, newMovieRating, id);
         })
       }
     });
@@ -168,7 +168,7 @@ $(document).on('click', '.edit-button', function (e) {
 
 //DELETE METHOD for REMOVING movie title, rating, and id
 
-const deleteMovie = (deleteMovieId) => {
+const deleteMovie2 = (deleteMovieId) => {
   let url = `/api/movies/${deleteMovieId}`;
   const options = {
     method: 'DELETE',
@@ -189,7 +189,7 @@ $(document).on("click", ".delete-button", function (e) {
     movies.forEach(({id}) => {
       let deleteMovieId = id;
       if ($(this).attr('id') === id.toString()) {
-        deleteMovie(deleteMovieId);
+        deleteMovie2(deleteMovieId);
       }
     })
   })
@@ -275,27 +275,6 @@ const pullMovieData = (id) => {
                   "rating": movie.rating
                 };
 
-const getRating = (stars) => {
-    switch (stars) {
-      case "5 Stars":
-        console.log('5');
-        return 5;
-      case "4 Stars":
-        console.log('4');
-        return 4;
-      case "3 Stars":
-        console.log('3');
-        return 3;
-      case "2 Stars":
-        console.log('2');
-        return 2;
-      case "1 Star":
-        console.log('1');
-        return 1;
-      default:
-        return "undefined"
-    }
-  };
 
 
                 $('#edit-title').val(returnNewObj.title);

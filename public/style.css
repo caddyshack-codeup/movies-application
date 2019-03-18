@@ -46,7 +46,8 @@ html, body {
 }
 .movie-container {
     width: 100%;
-    height: 2000px;
+    /*height: 2000px;*/
+    height: 100%;
     margin-top: 50px;
     transform-style: preserve-3d;
 
@@ -81,7 +82,8 @@ html, body {
 
 .right-container {
     background-color: white;
-    height: 1500px;
+    /*height: 1500px;*/
+    height: 100%;
     margin: 0;
     padding: 0;
     width: 30%;
